@@ -1,0 +1,55 @@
+// --- USER PROGRAM (Hardware x3000 -> .mem @1800) ---
+@1800
+5020    // AND R0, R0, #0   (Clears R0)
+1023    // ADD R0, R0, #3   (R0 becomes x0003 - an ODD address)
+6200    // LDW R1, R0, #0   (Attempt to load a WORD from x0003 - TRAP!)
+0FFF    // BRnzp -1         (Infinite loop just in case)
+
+
+// --- VECTOR TABLE (Hardware x0200 -> .mem @0100) ---
+// Vector x02 (Page Fault) -> x1200
+@0102
+1200
+
+// Vector x03 (Unaligned Access) is at hardware x0206. Word index is @0103.
+// We point this vector to our new handler at hardware x1600.
+@0103
+1600
+
+// Vector x04 (Protection Exception) -> x1400
+@0104
+1400
+
+
+// --- PAGE TABLE ENTRIES (Hardware x1000 -> .mem @0800) ---
+
+// PTE for Vector Table (Virtual x0200 -> VPN x01) -> x0204
+@0801
+0204
+
+// PTE for Unaligned Handler (Virtual x1600 -> VPN x0B) -> x1604
+@080B
+1604
+
+// PTE for Supervisor Stack (Virtual x2FFE -> VPN x17) -> x3004
+@0817
+3004
+
+// PTE for User Program Fetch (Virtual x3000 -> VPN x18) -> x300C (User access)
+@0818
+300C
+
+
+// --- OS HANDLER CODE ---
+
+// Page Fault Handler (x1200 -> .mem @0900)
+@0900
+0FFF
+
+// Protection Exception Handler (x1400 -> .mem @0A00)
+@0A00
+0FFF
+
+// Unaligned Access Handler (x1600 -> .mem @0B00)
+@0B00
+0FFF

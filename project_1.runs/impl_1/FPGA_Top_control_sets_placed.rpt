@@ -1,0 +1,236 @@
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2023.2 (win64) Build 4029153 Fri Oct 13 20:14:34 MDT 2023
+| Date         : Tue May 12 16:36:58 2026
+| Host         : DESKTOP-8CM2O2I running 64-bit major release  (build 9200)
+| Command      : report_control_sets -verbose -file FPGA_Top_control_sets_placed.rpt
+| Design       : FPGA_Top
+| Device       : xc7a35t
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+Control Set Information
+
+Table of Contents
+-----------------
+1. Summary
+2. Histogram
+3. Flip-Flop Distribution
+4. Detailed Control Set Information
+
+1. Summary
+----------
+
++----------------------------------------------------------+-------+
+|                          Status                          | Count |
++----------------------------------------------------------+-------+
+| Total control sets                                       |   158 |
+|    Minimum number of control sets                        |   158 |
+|    Addition due to synthesis replication                 |     0 |
+|    Addition due to physical synthesis replication        |     0 |
+| Unused register locations in slices containing registers |    47 |
++----------------------------------------------------------+-------+
+* Control sets can be merged at opt_design using control_set_merge or merge_equivalent_drivers
+** Run report_qor_suggestions for automated merging and remapping suggestions
+
+
+2. Histogram
+------------
+
++--------------------+-------+
+|       Fanout       | Count |
++--------------------+-------+
+| Total control sets |   158 |
+| >= 0 to < 4        |     1 |
+| >= 4 to < 6        |     3 |
+| >= 6 to < 8        |     2 |
+| >= 8 to < 10       |     3 |
+| >= 10 to < 12      |     1 |
+| >= 12 to < 14      |     0 |
+| >= 14 to < 16      |     3 |
+| >= 16              |   145 |
++--------------------+-------+
+* Control sets can be remapped at either synth_design or opt_design
+
+
+3. Flip-Flop Distribution
+-------------------------
+
++--------------+-----------------------+------------------------+-----------------+--------------+
+| Clock Enable | Synchronous Set/Reset | Asynchronous Set/Reset | Total Registers | Total Slices |
++--------------+-----------------------+------------------------+-----------------+--------------+
+| No           | No                    | No                     |               4 |            3 |
+| No           | No                    | Yes                    |               0 |            0 |
+| No           | Yes                   | No                     |              46 |           20 |
+| Yes          | No                    | No                     |              36 |           23 |
+| Yes          | No                    | Yes                    |               0 |            0 |
+| Yes          | Yes                   | No                     |             371 |          232 |
++--------------+-----------------------+------------------------+-----------------+--------------+
+
+
+4. Detailed Control Set Information
+-----------------------------------
+
++--------------------------------+---------------------------------------------------------------+----------------------------------------------------+------------------+----------------+--------------+
+|          Clock Signal          |                         Enable Signal                         |                  Set/Reset Signal                  | Slice Load Count | Bel Load Count | Bels / Slice |
++--------------------------------+---------------------------------------------------------------+----------------------------------------------------+------------------+----------------+--------------+
+|  clock_generator/inst/clk_out1 | Lc3b_Core/cpu_control/current_state_reg[2]_5                  | Lc3b_Core/cpu_control/current_state_reg[2]_9       |                1 |              1 |         1.00 |
+|  clock_generator/inst/clk_out1 |                                                               |                                                    |                3 |              4 |         1.33 |
+|  clock_generator/inst/clk_out1 | System_UART/Receiver/tick_count[3]_i_1_n_0                    | Lc3b_Core/cpu_datapath/lc3b_reg_file/reset_btn     |                2 |              4 |         2.00 |
+|  clock_generator/inst/clk_out1 | Lc3b_Core/cpu_control/CHECK_PTE                               | Lc3b_Core/cpu_datapath/lc3b_reg_file/reset_btn     |                3 |              5 |         1.67 |
+|  clock_generator/inst/clk_out1 |                                                               | System_UART/Receiver/oversample_counter[5]_i_1_n_0 |                1 |              6 |         6.00 |
+|  clock_generator/inst/clk_out1 | Lc3b_Core/cpu_control/RET_ADDR[5]_i_1_n_0                     | Lc3b_Core/cpu_datapath/lc3b_reg_file/reset_btn     |                4 |              6 |         1.50 |
+|  clock_generator/inst/clk_out1 | System_UART/Transmitter/shift_reg_0                           | Lc3b_Core/cpu_datapath/lc3b_reg_file/reset_btn     |                2 |              8 |         4.00 |
+|  clock_generator/inst/clk_out1 | System_UART/Receiver/rx_data[7]_i_1_n_0                       | Lc3b_Core/cpu_datapath/lc3b_reg_file/reset_btn     |                4 |              8 |         2.00 |
+|  clock_generator/inst/clk_out1 | System_UART/Receiver/shift_reg[7]_i_1_n_0                     | Lc3b_Core/cpu_datapath/lc3b_reg_file/reset_btn     |                4 |              8 |         2.00 |
+|  clock_generator/inst/clk_out1 |                                                               | System_UART/Transmitter/baud_counter[9]_i_1_n_0    |                2 |             10 |         5.00 |
+|  clock_generator/inst/clk_out1 | Lc3b_Core/cpu_control/current_state_reg[5]_3                  | Lc3b_Core/cpu_control/current_state_reg[5]_11      |                9 |             14 |         1.56 |
+|  clock_generator/inst/clk_out1 | Lc3b_Core/cpu_control/current_state_reg[2]_5                  |                                                    |                8 |             15 |         1.88 |
+|  clock_generator/inst/clk_out1 | Lc3b_Core/cpu_datapath/E[0]                                   | Lc3b_Core/cpu_datapath/lc3b_reg_file/reset_btn     |                8 |             15 |         1.88 |
+|  clock_generator/inst/clk_out1 | Lc3b_Core/cpu_control/SPMUX                                   | Lc3b_Core/cpu_datapath/lc3b_reg_file/reset_btn     |               11 |             16 |         1.45 |
+|  clock_generator/inst/clk_out1 | Lc3b_Core/cpu_control/E[0]                                    | Lc3b_Core/cpu_datapath/lc3b_reg_file/reset_btn     |               13 |             16 |         1.23 |
+|  clock_generator/inst/clk_out1 | Lc3b_Core/cpu_control/IR_reg[10][0]                           | Lc3b_Core/cpu_datapath/lc3b_reg_file/reset_btn     |                9 |             16 |         1.78 |
+|  clock_generator/inst/clk_out1 | Lc3b_Core/cpu_control/current_state_reg[5]_8[0]               | Lc3b_Core/cpu_datapath/lc3b_reg_file/reset_btn     |               10 |             16 |         1.60 |
+|  clock_generator/inst/clk_out1 | Lc3b_Core/cpu_control/current_state_reg[1]_6[0]               | Lc3b_Core/cpu_datapath/lc3b_reg_file/reset_btn     |                9 |             16 |         1.78 |
+|  clock_generator/inst/clk_out1 | Lc3b_Core/cpu_control/current_state_reg[2]_3[0]               | Lc3b_Core/cpu_datapath/lc3b_reg_file/reset_btn     |               10 |             16 |         1.60 |
+|  clock_generator/inst/clk_out1 | Lc3b_Core/cpu_datapath/lc3b_reg_file/registers                | Lc3b_Core/cpu_datapath/lc3b_reg_file/reset_btn     |                8 |             16 |         2.00 |
+|  clock_generator/inst/clk_out1 | Lc3b_Core/cpu_datapath/lc3b_reg_file/registers[1][15]_i_1_n_0 | Lc3b_Core/cpu_datapath/lc3b_reg_file/reset_btn     |                8 |             16 |         2.00 |
+|  clock_generator/inst/clk_out1 | Lc3b_Core/cpu_datapath/lc3b_reg_file/registers[2][15]_i_1_n_0 | Lc3b_Core/cpu_datapath/lc3b_reg_file/reset_btn     |                6 |             16 |         2.67 |
+|  clock_generator/inst/clk_out1 | Lc3b_Core/cpu_datapath/lc3b_reg_file/registers[3][15]_i_1_n_0 | Lc3b_Core/cpu_datapath/lc3b_reg_file/reset_btn     |                9 |             16 |         1.78 |
+|  clock_generator/inst/clk_out1 | Lc3b_Core/cpu_datapath/lc3b_reg_file/registers[4][15]_i_1_n_0 | Lc3b_Core/cpu_datapath/lc3b_reg_file/reset_btn     |               11 |             16 |         1.45 |
+|  clock_generator/inst/clk_out1 | Lc3b_Core/cpu_datapath/lc3b_reg_file/registers[7][15]_i_1_n_0 | Lc3b_Core/cpu_datapath/lc3b_reg_file/reset_btn     |                6 |             16 |         2.67 |
+|  clock_generator/inst/clk_out1 | Lc3b_Core/cpu_datapath/lc3b_reg_file/registers[6][15]_i_1_n_0 | Lc3b_Core/cpu_datapath/lc3b_reg_file/reset_btn     |               10 |             16 |         1.60 |
+|  clock_generator/inst/clk_out1 | Lc3b_Core/cpu_control/current_state_reg[5]_5                  |                                                    |               15 |             21 |         1.40 |
+|  clock_generator/inst/clk_out1 |                                                               | Lc3b_Core/cpu_datapath/lc3b_reg_file/reset_btn     |               17 |             30 |         1.76 |
+|  clock_generator/inst/clk_out1 | Lc3b_Core/cpu_control/LD_MDR                                  | Lc3b_Core/cpu_datapath/lc3b_reg_file/reset_btn     |               27 |             42 |         1.56 |
+|  clock_generator/inst/clk_out1 | Lc3b_Core/cpu_control/current_state_reg[5]_5                  | Lc3b_Core/cpu_control/current_state_reg[5]_12      |               48 |             52 |         1.08 |
+|  clock_generator/inst/clk_out1 | Lc3b_Core/cpu_datapath/MAR_reg[13]_14                         |                                                    |               16 |             64 |         4.00 |
+|  clock_generator/inst/clk_out1 | Lc3b_Core/cpu_datapath/MAR_reg[10]_5                          |                                                    |               16 |             64 |         4.00 |
+|  clock_generator/inst/clk_out1 | Lc3b_Core/cpu_datapath/MAR_reg[10]_8                          |                                                    |               16 |             64 |         4.00 |
+|  clock_generator/inst/clk_out1 | Lc3b_Core/cpu_datapath/MAR_reg[11]_13                         |                                                    |               16 |             64 |         4.00 |
+|  clock_generator/inst/clk_out1 | Lc3b_Core/cpu_datapath/MAR_reg[10]_7                          |                                                    |               16 |             64 |         4.00 |
+|  clock_generator/inst/clk_out1 | Lc3b_Core/cpu_datapath/MAR_reg[11]_15                         |                                                    |               16 |             64 |         4.00 |
+|  clock_generator/inst/clk_out1 | Lc3b_Core/cpu_datapath/MAR_reg[11]_16                         |                                                    |               16 |             64 |         4.00 |
+|  clock_generator/inst/clk_out1 | Lc3b_Core/cpu_datapath/MAR_reg[12]_11                         |                                                    |               16 |             64 |         4.00 |
+|  clock_generator/inst/clk_out1 | Lc3b_Core/cpu_datapath/MAR_reg[12]_8                          |                                                    |               16 |             64 |         4.00 |
+|  clock_generator/inst/clk_out1 | Lc3b_Core/cpu_datapath/MAR_reg[11]_17                         |                                                    |               16 |             64 |         4.00 |
+|  clock_generator/inst/clk_out1 | Lc3b_Core/cpu_datapath/MAR_reg[12]_rep_4                      |                                                    |               16 |             64 |         4.00 |
+|  clock_generator/inst/clk_out1 | Lc3b_Core/cpu_datapath/MAR_reg[13]_12                         |                                                    |               16 |             64 |         4.00 |
+|  clock_generator/inst/clk_out1 | Lc3b_Core/cpu_datapath/MAR_reg[10]_2                          |                                                    |               16 |             64 |         4.00 |
+|  clock_generator/inst/clk_out1 | Lc3b_Core/cpu_datapath/MAR_reg[10]_0                          |                                                    |               16 |             64 |         4.00 |
+|  clock_generator/inst/clk_out1 | Lc3b_Core/cpu_datapath/MAR_reg[11]_0                          |                                                    |               16 |             64 |         4.00 |
+|  clock_generator/inst/clk_out1 | Lc3b_Core/cpu_datapath/MAR_reg[11]_4                          |                                                    |               16 |             64 |         4.00 |
+|  clock_generator/inst/clk_out1 | Lc3b_Core/cpu_datapath/MAR_reg[12]_12                         |                                                    |               16 |             64 |         4.00 |
+|  clock_generator/inst/clk_out1 | Lc3b_Core/cpu_datapath/MAR_reg[12]_2                          |                                                    |               16 |             64 |         4.00 |
+|  clock_generator/inst/clk_out1 | Lc3b_Core/cpu_datapath/MAR_reg[10]_4                          |                                                    |               16 |             64 |         4.00 |
+|  clock_generator/inst/clk_out1 | Lc3b_Core/cpu_datapath/MAR_reg[11]_12                         |                                                    |               16 |             64 |         4.00 |
+|  clock_generator/inst/clk_out1 | Lc3b_Core/cpu_datapath/MAR_reg[10]_1                          |                                                    |               16 |             64 |         4.00 |
+|  clock_generator/inst/clk_out1 | Lc3b_Core/cpu_datapath/MAR_reg[11]_2                          |                                                    |               16 |             64 |         4.00 |
+|  clock_generator/inst/clk_out1 | Lc3b_Core/cpu_datapath/MAR_reg[12]_rep_8                      |                                                    |               16 |             64 |         4.00 |
+|  clock_generator/inst/clk_out1 | Lc3b_Core/cpu_datapath/MAR_reg[12]_6                          |                                                    |               16 |             64 |         4.00 |
+|  clock_generator/inst/clk_out1 | Lc3b_Core/cpu_datapath/MAR_reg[13]_16                         |                                                    |               16 |             64 |         4.00 |
+|  clock_generator/inst/clk_out1 | Lc3b_Core/cpu_datapath/MAR_reg[12]_3                          |                                                    |               16 |             64 |         4.00 |
+|  clock_generator/inst/clk_out1 | Lc3b_Core/cpu_datapath/MAR_reg[11]_5                          |                                                    |               16 |             64 |         4.00 |
+|  clock_generator/inst/clk_out1 | Lc3b_Core/cpu_datapath/MAR_reg[10]_3                          |                                                    |               16 |             64 |         4.00 |
+|  clock_generator/inst/clk_out1 | Lc3b_Core/cpu_datapath/MAR_reg[11]_11                         |                                                    |               16 |             64 |         4.00 |
+|  clock_generator/inst/clk_out1 | Lc3b_Core/cpu_datapath/MAR_reg[11]_14                         |                                                    |               16 |             64 |         4.00 |
+|  clock_generator/inst/clk_out1 | Lc3b_Core/cpu_datapath/MAR_reg[12]_1                          |                                                    |               16 |             64 |         4.00 |
+|  clock_generator/inst/clk_out1 | Lc3b_Core/cpu_datapath/MAR_reg[11]_8                          |                                                    |               16 |             64 |         4.00 |
+|  clock_generator/inst/clk_out1 | Lc3b_Core/cpu_datapath/MAR_reg[12]_9                          |                                                    |               16 |             64 |         4.00 |
+|  clock_generator/inst/clk_out1 | Lc3b_Core/cpu_datapath/MAR_reg[11]_9                          |                                                    |               16 |             64 |         4.00 |
+|  clock_generator/inst/clk_out1 | Lc3b_Core/cpu_datapath/MAR_reg[10]_6                          |                                                    |               16 |             64 |         4.00 |
+|  clock_generator/inst/clk_out1 | Lc3b_Core/cpu_datapath/MAR_reg[12]_4                          |                                                    |               16 |             64 |         4.00 |
+|  clock_generator/inst/clk_out1 | Lc3b_Core/cpu_datapath/MAR_reg[12]_rep_7                      |                                                    |               16 |             64 |         4.00 |
+|  clock_generator/inst/clk_out1 | Lc3b_Core/cpu_datapath/MAR_reg[13]_1                          |                                                    |               16 |             64 |         4.00 |
+|  clock_generator/inst/clk_out1 | Lc3b_Core/cpu_datapath/MAR_reg[12]_0                          |                                                    |               16 |             64 |         4.00 |
+|  clock_generator/inst/clk_out1 | Lc3b_Core/cpu_datapath/MAR_reg[13]_15                         |                                                    |               16 |             64 |         4.00 |
+|  clock_generator/inst/clk_out1 | Lc3b_Core/cpu_datapath/MAR_reg[11]_7                          |                                                    |               16 |             64 |         4.00 |
+|  clock_generator/inst/clk_out1 | Lc3b_Core/cpu_datapath/MAR_reg[10]_9                          |                                                    |               16 |             64 |         4.00 |
+|  clock_generator/inst/clk_out1 | Lc3b_Core/cpu_datapath/MAR_reg[12]_10                         |                                                    |               16 |             64 |         4.00 |
+|  clock_generator/inst/clk_out1 | Lc3b_Core/cpu_datapath/MAR_reg[12]_5                          |                                                    |               16 |             64 |         4.00 |
+|  clock_generator/inst/clk_out1 | Lc3b_Core/cpu_datapath/MAR_reg[12]_rep_0                      |                                                    |               16 |             64 |         4.00 |
+|  clock_generator/inst/clk_out1 | Lc3b_Core/cpu_datapath/MAR_reg[11]_1                          |                                                    |               16 |             64 |         4.00 |
+|  clock_generator/inst/clk_out1 | Lc3b_Core/cpu_datapath/MAR_reg[12]_rep_5                      |                                                    |               16 |             64 |         4.00 |
+|  clock_generator/inst/clk_out1 | Lc3b_Core/cpu_datapath/MAR_reg[13]_0                          |                                                    |               16 |             64 |         4.00 |
+|  clock_generator/inst/clk_out1 | Lc3b_Core/cpu_datapath/MAR_reg[13]_11                         |                                                    |               16 |             64 |         4.00 |
+|  clock_generator/inst/clk_out1 | Lc3b_Core/cpu_datapath/MAR_reg[11]_10                         |                                                    |               16 |             64 |         4.00 |
+|  clock_generator/inst/clk_out1 | Lc3b_Core/cpu_datapath/MAR_reg[11]_18                         |                                                    |               16 |             64 |         4.00 |
+|  clock_generator/inst/clk_out1 | Lc3b_Core/cpu_datapath/MAR_reg[11]_6                          |                                                    |               16 |             64 |         4.00 |
+|  clock_generator/inst/clk_out1 | Lc3b_Core/cpu_datapath/MAR_reg[12]_7                          |                                                    |               16 |             64 |         4.00 |
+|  clock_generator/inst/clk_out1 | Lc3b_Core/cpu_datapath/MAR_reg[12]_rep_6                      |                                                    |               16 |             64 |         4.00 |
+|  clock_generator/inst/clk_out1 | Lc3b_Core/cpu_datapath/MAR_reg[14]_12                         |                                                    |               16 |             64 |         4.00 |
+|  clock_generator/inst/clk_out1 | Lc3b_Core/cpu_datapath/MAR_reg[14]_5                          |                                                    |               16 |             64 |         4.00 |
+|  clock_generator/inst/clk_out1 | Lc3b_Core/cpu_datapath/MAR_reg[15]_14                         |                                                    |               16 |             64 |         4.00 |
+|  clock_generator/inst/clk_out1 | Lc3b_Core/cpu_datapath/MAR_reg[15]_17                         |                                                    |               16 |             64 |         4.00 |
+|  clock_generator/inst/clk_out1 | Lc3b_Core/cpu_datapath/MAR_reg[15]_21                         |                                                    |               16 |             64 |         4.00 |
+|  clock_generator/inst/clk_out1 | Lc3b_Core/cpu_datapath/MAR_reg[15]_23                         |                                                    |               16 |             64 |         4.00 |
+|  clock_generator/inst/clk_out1 | Lc3b_Core/cpu_datapath/MAR_reg[14]_8                          |                                                    |               16 |             64 |         4.00 |
+|  clock_generator/inst/clk_out1 | Lc3b_Core/cpu_datapath/MAR_reg[15]_1                          |                                                    |               16 |             64 |         4.00 |
+|  clock_generator/inst/clk_out1 | Lc3b_Core/cpu_datapath/MAR_reg[15]_2                          |                                                    |               16 |             64 |         4.00 |
+|  clock_generator/inst/clk_out1 | Lc3b_Core/cpu_datapath/MAR_reg[15]_0                          |                                                    |               16 |             64 |         4.00 |
+|  clock_generator/inst/clk_out1 | Lc3b_Core/cpu_datapath/MAR_reg[15]_24                         |                                                    |               16 |             64 |         4.00 |
+|  clock_generator/inst/clk_out1 | Lc3b_Core/cpu_datapath/MAR_reg[15]_27                         |                                                    |               16 |             64 |         4.00 |
+|  clock_generator/inst/clk_out1 | Lc3b_Core/cpu_datapath/MAR_reg[15]_28                         |                                                    |               16 |             64 |         4.00 |
+|  clock_generator/inst/clk_out1 | Lc3b_Core/cpu_datapath/MAR_reg[15]_29                         |                                                    |               16 |             64 |         4.00 |
+|  clock_generator/inst/clk_out1 | Lc3b_Core/cpu_datapath/MAR_reg[15]_10                         |                                                    |               16 |             64 |         4.00 |
+|  clock_generator/inst/clk_out1 | Lc3b_Core/cpu_datapath/MAR_reg[15]_25                         |                                                    |               16 |             64 |         4.00 |
+|  clock_generator/inst/clk_out1 | Lc3b_Core/cpu_datapath/MAR_reg[13]_8                          |                                                    |               16 |             64 |         4.00 |
+|  clock_generator/inst/clk_out1 | Lc3b_Core/cpu_datapath/MAR_reg[13]_17                         |                                                    |               16 |             64 |         4.00 |
+|  clock_generator/inst/clk_out1 | Lc3b_Core/cpu_datapath/MAR_reg[13]_18                         |                                                    |               16 |             64 |         4.00 |
+|  clock_generator/inst/clk_out1 | Lc3b_Core/cpu_datapath/MAR_reg[14]_1                          |                                                    |               16 |             64 |         4.00 |
+|  clock_generator/inst/clk_out1 | Lc3b_Core/cpu_datapath/MAR_reg[14]_13                         |                                                    |               16 |             64 |         4.00 |
+|  clock_generator/inst/clk_out1 | Lc3b_Core/cpu_datapath/MAR_reg[14]_14                         |                                                    |               16 |             64 |         4.00 |
+|  clock_generator/inst/clk_out1 | Lc3b_Core/cpu_datapath/MAR_reg[14]_20                         |                                                    |               16 |             64 |         4.00 |
+|  clock_generator/inst/clk_out1 | Lc3b_Core/cpu_datapath/MAR_reg[14]_23                         |                                                    |               16 |             64 |         4.00 |
+|  clock_generator/inst/clk_out1 | Lc3b_Core/cpu_datapath/MAR_reg[15]_15                         |                                                    |               16 |             64 |         4.00 |
+|  clock_generator/inst/clk_out1 | Lc3b_Core/cpu_datapath/MAR_reg[14]_4                          |                                                    |               16 |             64 |         4.00 |
+|  clock_generator/inst/clk_out1 | Lc3b_Core/cpu_datapath/MAR_reg[14]_6                          |                                                    |               16 |             64 |         4.00 |
+|  clock_generator/inst/clk_out1 | Lc3b_Core/cpu_datapath/MAR_reg[15]_12                         |                                                    |               16 |             64 |         4.00 |
+|  clock_generator/inst/clk_out1 | Lc3b_Core/cpu_datapath/MAR_reg[15]_13                         |                                                    |               16 |             64 |         4.00 |
+|  clock_generator/inst/clk_out1 | Lc3b_Core/cpu_datapath/MAR_reg[15]_3                          |                                                    |               16 |             64 |         4.00 |
+|  clock_generator/inst/clk_out1 | Lc3b_Core/cpu_datapath/MAR_reg[15]_30                         |                                                    |               16 |             64 |         4.00 |
+|  clock_generator/inst/clk_out1 | Lc3b_Core/cpu_datapath/MAR_reg[15]_31                         |                                                    |               16 |             64 |         4.00 |
+|  clock_generator/inst/clk_out1 | Lc3b_Core/cpu_datapath/MAR_reg[15]_33                         |                                                    |               16 |             64 |         4.00 |
+|  clock_generator/inst/clk_out1 | Lc3b_Core/cpu_datapath/MAR_reg[15]_4                          |                                                    |               16 |             64 |         4.00 |
+|  clock_generator/inst/clk_out1 | Lc3b_Core/cpu_datapath/MAR_reg[15]_22                         |                                                    |               16 |             64 |         4.00 |
+|  clock_generator/inst/clk_out1 | Lc3b_Core/cpu_datapath/MAR_reg[13]_13                         |                                                    |               16 |             64 |         4.00 |
+|  clock_generator/inst/clk_out1 | Lc3b_Core/cpu_datapath/MAR_reg[13]_3                          |                                                    |               16 |             64 |         4.00 |
+|  clock_generator/inst/clk_out1 | Lc3b_Core/cpu_datapath/MAR_reg[14]_16                         |                                                    |               16 |             64 |         4.00 |
+|  clock_generator/inst/clk_out1 | Lc3b_Core/cpu_datapath/MAR_reg[14]_11                         |                                                    |               16 |             64 |         4.00 |
+|  clock_generator/inst/clk_out1 | Lc3b_Core/cpu_datapath/MAR_reg[14]_3                          |                                                    |               16 |             64 |         4.00 |
+|  clock_generator/inst/clk_out1 | Lc3b_Core/cpu_datapath/MAR_reg[13]_7                          |                                                    |               16 |             64 |         4.00 |
+|  clock_generator/inst/clk_out1 | Lc3b_Core/cpu_datapath/MAR_reg[14]_2                          |                                                    |               16 |             64 |         4.00 |
+|  clock_generator/inst/clk_out1 | Lc3b_Core/cpu_datapath/MAR_reg[14]_7                          |                                                    |               16 |             64 |         4.00 |
+|  clock_generator/inst/clk_out1 | Lc3b_Core/cpu_datapath/MAR_reg[14]_9                          |                                                    |               16 |             64 |         4.00 |
+|  clock_generator/inst/clk_out1 | Lc3b_Core/cpu_datapath/MAR_reg[15]_18                         |                                                    |               16 |             64 |         4.00 |
+|  clock_generator/inst/clk_out1 | Lc3b_Core/cpu_datapath/MAR_reg[15]_19                         |                                                    |               16 |             64 |         4.00 |
+|  clock_generator/inst/clk_out1 | Lc3b_Core/cpu_datapath/MAR_reg[15]_20                         |                                                    |               16 |             64 |         4.00 |
+|  clock_generator/inst/clk_out1 | Lc3b_Core/cpu_datapath/MAR_reg[15]_26                         |                                                    |               16 |             64 |         4.00 |
+|  clock_generator/inst/clk_out1 | Lc3b_Core/cpu_datapath/MAR_reg[15]_16                         |                                                    |               16 |             64 |         4.00 |
+|  clock_generator/inst/clk_out1 | Lc3b_Core/cpu_datapath/MAR_reg[15]_32                         |                                                    |               16 |             64 |         4.00 |
+|  clock_generator/inst/clk_out1 | Lc3b_Core/cpu_datapath/MAR_reg[13]_5                          |                                                    |               16 |             64 |         4.00 |
+|  clock_generator/inst/clk_out1 | Lc3b_Core/cpu_datapath/MAR_reg[13]_9                          |                                                    |               16 |             64 |         4.00 |
+|  clock_generator/inst/clk_out1 | Lc3b_Core/cpu_datapath/MAR_reg[14]_21                         |                                                    |               16 |             64 |         4.00 |
+|  clock_generator/inst/clk_out1 | Lc3b_Core/cpu_datapath/MAR_reg[13]_2                          |                                                    |               16 |             64 |         4.00 |
+|  clock_generator/inst/clk_out1 | Lc3b_Core/cpu_datapath/MAR_reg[14]_10                         |                                                    |               16 |             64 |         4.00 |
+|  clock_generator/inst/clk_out1 | Lc3b_Core/cpu_datapath/MAR_reg[14]_0                          |                                                    |               16 |             64 |         4.00 |
+|  clock_generator/inst/clk_out1 | Lc3b_Core/cpu_datapath/MAR_reg[14]_22                         |                                                    |               16 |             64 |         4.00 |
+|  clock_generator/inst/clk_out1 | Lc3b_Core/cpu_datapath/MAR_reg[13]_6                          |                                                    |               16 |             64 |         4.00 |
+|  clock_generator/inst/clk_out1 | Lc3b_Core/cpu_datapath/MAR_reg[13]_4                          |                                                    |               16 |             64 |         4.00 |
+|  clock_generator/inst/clk_out1 | Lc3b_Core/cpu_datapath/MAR_reg[14]_17                         |                                                    |               16 |             64 |         4.00 |
+|  clock_generator/inst/clk_out1 | Lc3b_Core/cpu_datapath/MAR_reg[14]_19                         |                                                    |               16 |             64 |         4.00 |
+|  clock_generator/inst/clk_out1 | Lc3b_Core/cpu_datapath/MAR_reg[15]_11                         |                                                    |               16 |             64 |         4.00 |
+|  clock_generator/inst/clk_out1 | Lc3b_Core/cpu_datapath/MAR_reg[14]_18                         |                                                    |               16 |             64 |         4.00 |
+|  clock_generator/inst/clk_out1 | Lc3b_Core/cpu_datapath/MAR_reg[15]_7                          |                                                    |               16 |             64 |         4.00 |
+|  clock_generator/inst/clk_out1 | Lc3b_Core/cpu_datapath/MAR_reg[15]_8                          |                                                    |               16 |             64 |         4.00 |
+|  clock_generator/inst/clk_out1 | Lc3b_Core/cpu_datapath/MAR_reg[15]_9                          |                                                    |               16 |             64 |         4.00 |
+|  clock_generator/inst/clk_out1 | Lc3b_Core/cpu_datapath/MAR_reg[9]_0                           |                                                    |               16 |             64 |         4.00 |
+|  clock_generator/inst/clk_out1 | Lc3b_Core/cpu_datapath/MAR_reg[15]_5                          |                                                    |               16 |             64 |         4.00 |
+|  clock_generator/inst/clk_out1 | Lc3b_Core/cpu_datapath/MAR_reg[15]_6                          |                                                    |               16 |             64 |         4.00 |
+|  clock_generator/inst/clk_out1 | Lc3b_Core/cpu_datapath/MAR_reg[11]_3                          |                                                    |               16 |             64 |         4.00 |
+|  clock_generator/inst/clk_out1 | Lc3b_Core/cpu_datapath/MAR_reg[12]_rep_3                      |                                                    |               16 |             64 |         4.00 |
+|  clock_generator/inst/clk_out1 | Lc3b_Core/cpu_datapath/MAR_reg[13]_10                         |                                                    |               16 |             64 |         4.00 |
+|  clock_generator/inst/clk_out1 | Lc3b_Core/cpu_datapath/MAR_reg[12]_rep_2                      |                                                    |               16 |             64 |         4.00 |
+|  clock_generator/inst/clk_out1 | Lc3b_Core/cpu_datapath/MAR_reg[14]_15                         |                                                    |               16 |             64 |         4.00 |
++--------------------------------+---------------------------------------------------------------+----------------------------------------------------+------------------+----------------+--------------+
+
+

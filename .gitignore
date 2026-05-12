@@ -1,0 +1,16 @@
+# Vivado Generated Directories to Ignore
+*/.Xil/
+*/.cache/
+*/.hw/
+*/.sim/
+*/.runs/
+*/.ip_user_files/
+
+# Vivado Log and Journal Files
+*.jou
+*.log
+*.str
+*.pb
+
+# Simulation Waveforms
+*.wdb

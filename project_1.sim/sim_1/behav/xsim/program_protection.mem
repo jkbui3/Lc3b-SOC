@@ -1,0 +1,59 @@
+@1800
+122A    // ADD R1, R0, #10  (R1 becomes x000A)
+7240    // STR R1, R1, #0   (Attempts to store x000A at address x000A)
+0FFF    // BRnzp -1         (Infinite loop just in case)
+
+
+// --- VECTOR TABLE (Hardware x0200 -> .mem @0100) ---
+// Vector x02 (Page Fault)
+@0102
+1200
+
+// Vector x04 (Protection Exception) is at hardware x0208. Word index is @0104.
+// We point this vector to our new handler at hardware x1400.
+@0104
+1400
+
+
+// --- PAGE TABLE ENTRIES (Hardware x1000 -> .mem @0800) ---
+
+// Target Data Page (Virtual x0000 -> VPN x00)
+// V=1, User=0 -> x0004 (VALID, BUT SUPERVISOR ONLY)
+@0800
+0004
+
+// PTE for Vector Table (Virtual x0200 -> VPN x01)
+// V=1, User=0 -> x0204
+@0801
+0204
+
+// PTE for Page Fault Handler (Virtual x1200 -> VPN x09)
+// V=1, User=0 -> x1204
+@0809
+1204
+
+// PTE for Protection Handler (Virtual x1400 -> VPN x0A)
+// V=1, User=0 -> x1404
+@080A
+1404
+
+// PTE for Supervisor Stack (Virtual x2FFE -> VPN x17)
+// V=1, User=0 -> x3004
+@0817
+3004
+
+// PTE for User Program Fetch (Virtual x3000 -> VPN x18)
+// V=1, User=1 (Bit 3) -> x300C. This allows the CPU to fetch the instruction!
+@0818
+300C
+
+
+// --- OS HANDLER CODE ---
+
+// Page Fault Handler (x1200 -> .mem @0900)
+@0900
+0FFF
+
+// Protection Exception Handler (x1400 -> .mem @0A00)
+@0A00
+0FFF

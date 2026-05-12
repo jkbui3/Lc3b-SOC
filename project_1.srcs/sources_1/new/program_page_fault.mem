@@ -1,0 +1,40 @@
+@1800
+122A
+7240
+6440
+0FFF
+
+
+// --- VECTOR TABLE (Hardware x0200 -> .mem @0100) ---
+// Vector x02 (Page Fault) is at hardware x0204. Word index is @0102.
+// We point this vector to our dummy handler at hardware x1200.
+@0102
+1200
+
+// --- PAGE TABLE ENTRIES (Hardware x1000 -> .mem @0800) ---
+// Your original invalid PTE that triggers the fault
+@0800
+0000
+
+// 1. PTE for the Vector Table (Virtual x0200 -> VPN x01)
+// Hardware address: x1000 + (x01 * 2) = x1002. Word index: @0801
+// Maps to Physical x0200 + Set V=1 (Bit 2) -> x0204
+@0801
+0204
+
+// 2. PTE for the Exception Handler (Virtual x1200 -> VPN x09)
+// Hardware address: x1000 + (x09 * 2) = x1012. Word index: @0809
+// Maps to Physical x1200 + Set V=1 (Bit 2) -> x1204
+@0809
+1204
+
+// 3. PTE for the Supervisor Stack (R6 = x3000 -> VPN x18)
+// Hardware address: x1000 + (x18 * 2) = x1030. Word index: @0818
+// Maps to Physical x3000 + Set V=1 (Bit 2) -> x3004
+@0817
+3004
+
+// --- OS HANDLER CODE (Hardware x1200 -> .mem @0900) ---
+// The Dummy Exception Handler Code (0EFF is "BRnzp -1" infinite loop)
+@0900
+0FFF

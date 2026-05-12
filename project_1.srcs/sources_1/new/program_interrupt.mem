@@ -1,0 +1,62 @@
+// --- USER PROGRAM (Hardware x3000 -> .mem @1800) ---
+@1800
+1021    // ADD R0, R0, #1
+0FFF    // BRnzp -1 (Loops back to the ADD)
+
+
+// --- SHARED VECTOR TABLE (Hardware x0200 -> .mem @0100) ---
+
+// Vector x01 (External Interrupt) is at hardware x0202. Word index @0101.
+// Points to our interrupt handler at x1A00.
+@0101
+1A00
+
+// Vector x02 (Page Fault) -> x1200
+@0102
+1200
+
+// Vector x03 (Unaligned Access) -> x1600
+@0103
+1600
+
+// Vector x04 (Protection Exception) -> x1400
+@0104
+1400
+
+// --- PAGE TABLE ENTRIES (Hardware x1000 -> .mem @0800) ---
+
+// VPN x01 (Virtual x0200 - x03FF). Contains the shared Vector Table.
+// V=1, User=0 -> x0204
+@0801
+0204
+
+// VPN x0D (Virtual x1A00 - x1BFF). Contains the Interrupt Handler!
+// V=1, User=0 -> x1A04
+@080D
+1A04
+
+// VPN x17 (Virtual x2E00 - x2FFF). Supervisor Stack.
+// V=1, User=0 -> x3004
+@0817
+3004
+
+// VPN x18 (Virtual x3000 - x31FF). User Program.
+// V=1, User=1 -> x300C (User access)
+@0818
+300C
+
+
+// --- OS HANDLER CODE ---
+
+// INTERRUPT Handler (x1A00 -> .mem @0D00)
+@0D00
+1B65    // ADD R5, R5, #5 (Visual proof the handler ran)
+8000    // RTI (Return from Interrupt - Pops PC and PSR from stack!)
+
+// Exception Handlers (Just in case)
+@0900
+0FFF
+@0A00
+0FFF
+@0B00
+0FFF

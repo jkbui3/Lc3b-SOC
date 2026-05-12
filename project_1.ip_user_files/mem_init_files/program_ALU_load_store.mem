@@ -1,0 +1,12 @@
+	// --- OS PAGE TABLE ---
+// Physical Address x1000 (Word Index @0800)
+@0800
+0004    // PTE for Page 0: Mapped to Frame 0, Valid(V=1), Protected(P=0) 
+
+// --- USER PROGRAM ---
+// Physical Address x3000 (Word Index @1800)
+@1800
+122A    // ADD R1, R0, #10
+7240    // STR R1, R1, #0
+6440    // LDR R2, R1, #0
+0FFF    // BRnzp #-1
